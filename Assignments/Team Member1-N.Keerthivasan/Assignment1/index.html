@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Formes</title>
+<link rel="stylesheet" href="style.css">
+<script>
+function validateForm() 
+{
+  var username=document.myform.name.value;
+  var password=document.myform.pass.value;
+  var mobile=document.myform.mobile.value;
+  var email=document.myform.email.value;
+  var filter=/^([a-z A-Z 0-9_\.\-])+\@([a-z A-Z 0-9\-])+\.+([a-z A-Z 0-9]{2,4})+$/;
+  var num=/^([0-9]{10})+$/;
+  if(username.length==0)
+  {
+     alert("UserName must be filled");
+     return false;
+  }
+  else if(password.length==0)
+  {
+     alert("Password must be filled");
+     return false;
+  }          
+  else if(mobile.length==0)
+  {
+     alert("Mobile Number must be filled");
+     return false;
+  } 
+  else if(email.length==0)
+  {
+     alert("Email must be filled");
+     return false;
+  } 
+  else if(!num.test(mobile))
+  {
+     alert("Enter valid mobile number");
+     return false;
+  }              
+  else if(!filter.test(email))
+  {
+     alert("Enter valid Email address");
+     return false;
+  } 
+}
+</script>
+</head>
+<body>
+<center>
+<h1>REGISTRATION FORM</h1>
+</center>
+<form name="myform" onsubmit="return validateForm()" method="post">
+<fieldset>
+<table>
+<tr>
+<td>Enter Your User Name</td><td>:</td>
+<td><input type="text" name="name"></td>
+</tr>
+<tr>
+<td>Enter Your Mobile Number</td><td>:</td>
+<td><input type="text" name="mobile"></td>
+</tr>
+<tr>
+<td>Enter Your Email Address</td><td>:</td>
+<td><input type="text" name="email"></td>
+</tr>
+<tr>
+<td><center>
+<input type="submit" value="Submit">
+</center></td>
+</tr>
+</table>  
+</fieldset>
+</form>
+</body>
+</html>
+
